@@ -14,10 +14,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  background: #333;
-}
-
 header {
   width: 96%;
   background: #fff;
@@ -33,6 +29,12 @@ header {
   padding: 0.3rem 2rem;
   transition: 0.2s linear;
   z-index: 1000;
+}
+
+.header-active {
+  top: 0;
+  width: 100%;
+  border-radius: 0;
 }
 
 header .logo {
@@ -74,6 +76,7 @@ header .fa-bars {
   display: none;
 }
 
+
 @media (max-width: 768px) {
   html {
     font-size: 55%;
@@ -83,7 +86,7 @@ header .fa-bars {
   }
   header .navbar {
     position: fixed;
-    top: 5.5rem;
+    top: -100rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -92,19 +95,22 @@ header .fa-bars {
     box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
     z-index: 1000;
     transition: 0.2s linear;
+    opacity: 0;
   }
   header .navbar ul {
     flex-flow: column;
   }
 
   header .navbar ul li {
-    margin: 1rem;
-    width:100%;
+    margin: 1rem 0;
+    width: 100%;
     text-align: center;
   }
 
-  header .navbar ul li a{
+  header .navbar ul li a {
     display: block;
     font-size: 3rem;
   }
+
+  
 }
