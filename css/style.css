@@ -164,6 +164,13 @@ header .fa-bars {
   background: none;
 }
 
+
+
+
+
+
+
+
 @media (max-width: 991px) {
   .home {
     flex-flow: column;
