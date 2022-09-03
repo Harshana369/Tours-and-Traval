@@ -1,27 +1,33 @@
-$(document).ready(function () {
+$(document).ready(function(){
 
-
-  $(".fa-bars").click(function () {
-    $(this).toggleClass("fa-times");
-    $(".navbar").toggleClass("nav-toggle");
+  $('.fa-bars').click(function(){
+    $(this).toggleClass('fa-times');
+    $('.navbar').toggleClass('nav-toggle');
   });
 
+  $(window).on('load scroll',function(){
 
-  $(window).on("load scroll", function () {
-    $(".fa-bars").removeClass("fa-times");
-    $(".navbar").removeClass("nav-toggle");
+    $('.fa-bars').removeClass('fa-times');
+    $('.navbar').removeClass('nav-toggle');
 
-
-    // meka mokakda kiyala danne na
-    if($(window).scrollTop() > 30) {
+    if($(window).scrollTop() > 30){
       $('header').addClass('header-active');
-      console.log("active")
     }else{
       $('header').removeClass('header-active');
-      console.log("remove");
     }
 
-    
+    $('section').each(function(){
+      var id = $(this).attr('id');
+      var height = $(this).height();
+      var offset = $(this).offset().top - 200;
+      var top = $(window).scrollTop();
+      if(top >= offset && top < offset + height){
+        $('.navbar ul li a').removeClass('active');
+        $('.navbar').find('[data-scroll="' + id + '"]').addClass('active');
+      }
+    });
+
   });
+
 
 });
